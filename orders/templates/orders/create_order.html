@@ -23,8 +23,9 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="id_first_name" class="form-label">Имя*:</label>
-                            <input type="text" class="form-control" id="id_first_name" name="first_name" required>
+                            <input type="text" class="form-control" id="id_first_name" name="first_name" 
                                 value="{% if form.first_name.value %}{{form.first_name.value}}{% endif%}"
+                                required>
                             {% if form.first_name.errors%}
                             <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
                             {% endif %}

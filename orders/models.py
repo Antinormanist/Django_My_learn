@@ -18,10 +18,10 @@ class OrderitemQueryset(models.QuerySet):
 
 class Order(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.SET_DEFAULT, blank=True, null=True, default=None, verbose_name="Пользователь")
-    createa_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания заказа")
+    created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания заказа")
     phone_number = models.CharField(max_length=20, verbose_name="Номер телефона")
     requires_delivery = models.BooleanField(default=False, verbose_name="Требуется доставка")
-    delivery_addres = models.TextField(null=True, blank=True, verbose_name="Адрес доставки")
+    delivery_address = models.TextField(null=True, blank=True, verbose_name="Адрес доставки")
     payment_on_get = models.BooleanField(default=False, verbose_name="Плата при получении")
     is_paid = models.BooleanField(default=False, verbose_name="Оплачено")
     status = models.CharField(max_length=50, default="В обработке", verbose_name="Стату заказа")
@@ -48,7 +48,7 @@ class Orderitem(models.Model):
     class Meta:
         db_table = "order_item"
         verbose_name = "Проданный товар"
-        verbose_name_plural = "проданные товары"
+        verbose_name_plural = "Проданные товары"
 
     objects = OrderitemQueryset().as_manager()
 
